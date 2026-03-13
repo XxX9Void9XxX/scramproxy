@@ -1,21 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <title>Scramjet Proxy</title>
+
 <style>
 body{
 background:black;
 color:#3fa3ff;
 font-family:Arial;
-text-align:center;
-margin-top:100px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+height:100vh;
+margin:0;
 }
+
+h1{
+font-size:50px;
+text-shadow:0 0 20px #3fa3ff;
+}
+
 input{
-padding:10px;
 width:400px;
+padding:12px;
+border:none;
+outline:none;
+background:#111;
+color:#3fa3ff;
 }
+
 button{
-padding:10px;
+padding:12px 20px;
+margin-left:10px;
+background:#3fa3ff;
+border:none;
+cursor:pointer;
 }
 </style>
 </head>
@@ -24,18 +45,20 @@ padding:10px;
 
 <h1>Scramjet Proxy</h1>
 
+<div>
 <input id="url" placeholder="Enter URL">
 <button onclick="go()">Go</button>
+</div>
 
 <script>
 function go(){
- let url=document.getElementById("url").value
+let url=document.getElementById("url").value
 
- if(!url.startsWith("http")){
-  url="https://"+url
- }
+if(!url.startsWith("http")){
+url="https://"+url
+}
 
- location.href="/scramjet/"+btoa(url)
+location.href="/service/"+btoa(url)
 }
 </script>
 
